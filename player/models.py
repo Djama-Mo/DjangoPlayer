@@ -21,7 +21,7 @@ class Song(models.Model):
 
 
 class Genre(models.Model):
-    title = models.CharField(max_length=128)
+    title = models.CharField('Genre', max_length=128, db_index=True)
 
     def __str__(self):
         return self.title

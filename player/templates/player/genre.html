@@ -7,11 +7,11 @@
 {% block content %}
 {% for item in objects %}
     <div class="cover">
-        <img alt="" src="{{ item.image.url }}"/>
+        <img alt="" src="{{item.image.url}}"/>
     </div>
     <div class="titre">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'Genre' item.pk %}">{{ item.genre }}</a>
+            <a class="nav-link active" aria-current="page" href="">{{ item.genre }}</a>
         </li>
 
         <h3>{{ item.artist }}</h3>
