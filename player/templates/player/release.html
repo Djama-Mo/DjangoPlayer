@@ -1,0 +1,12 @@
+{% extends 'player/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<form action="{% url 'Release' %}" method="post">
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-dark btn-primary">RELEASE</button>
+</form>
+{% endblock %}

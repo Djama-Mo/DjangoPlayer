@@ -11,7 +11,7 @@
     </div>
     <div class="titre">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'Genre' item.pk %}">{{ item.genre }}</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'Genre' item.genre.id %}">{{ item.genre }}</a>
         </li>
 
         <h3>{{ item.artist }}</h3>
