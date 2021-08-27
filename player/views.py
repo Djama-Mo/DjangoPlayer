@@ -8,8 +8,24 @@ from .forms import SongForm
 class SongView(ListView):
     model = Song
     template_name = 'player/index.html'
-    extra_context = {'title': 'Home Page'}
     context_object_name = 'objects'
+    
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Home Page'
+        return context
+
+
+class GenreView(SongView):
+    template_name = 'player/genre.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = Genre.objects.get(pk=self.kwargs['genre_id']).title
+        return context
+
+    def get_queryset(self):
+        return Song.objects.filter(genre_id=self.kwargs['genre_id'])
 
 
 # def index(request):
@@ -19,12 +35,12 @@ class SongView(ListView):
 #     return render(request, 'player/index.html', context=context)
 #
 #
-def get_genre(request, genre_id):
-    songs = Song.objects.filter(genre_id=genre_id)
-    genre = Genre.objects.get(id=genre_id).title
-    context = {'title': genre,
-               'objects': songs}
-    return render(request, 'player/genre.html', context=context)
+# def get_genre(request, genre_id):
+#     songs = Song.objects.filter(genre_id=genre_id)
+#     genre = Genre.objects.get(id=genre_id).title
+#     context = {'title': genre,
+#                'objects': songs}
+#     return render(request, 'player/genre.html', context=context)
 
 
 def release(request):
