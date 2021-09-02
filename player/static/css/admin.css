@@ -1,0 +1,52 @@
+#header{
+    background: #000000;
+    color: #efebe9;
+    --accent: #efebe9;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+#branding h1{
+    font-size: 44px;
+    font-weight: bold;
+}
+#user-tools{
+    font-size: 15px;
+}
+#container{
+    background: #efebe9;
+}
+#content h1{
+    color: #000000;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+#content-main a.section:link{
+    color: #efebe9;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+#content-main .module caption{
+    font-size: 20px;
+    text-transform: initial;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #000000;
+    --primary-fg: #eee;
+    --hairline-color: white;
+  }
+}
+tr:nth-child(odd), .row-form-errors {
+    background: #424242;
+}
+tr:nth-child(even),
+tr:nth-child(even) .errorlist,
+tr:nth-child(odd) + .row-form-errors,
+tr:nth-child(odd) + .row-form-errors .errorlist {
+    background: #424242;
+}
+a:link, a:visited {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.15s, background 0.15s;
+}
+#changelist .module{
+    background: white;
+}
