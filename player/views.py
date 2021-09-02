@@ -9,6 +9,7 @@ class SongView(ListView):
     model = Song
     template_name = 'player/index.html'
     context_object_name = 'objects'
+    queryset = Song.objects.select_related('genre')
     
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -25,7 +26,7 @@ class GenreView(SongView):
         return context
 
     def get_queryset(self):
-        return Song.objects.filter(genre_id=self.kwargs['genre_id'])
+        return Song.objects.filter(genre_id=self.kwargs['genre_id']).select_related('genre')
 
 
 # def index(request):
