@@ -12,6 +12,7 @@ class SongView(ListView):
     template_name = 'player/index.html'
     context_object_name = 'objects'
     queryset = Song.objects.select_related('genre')
+    # paginate_by = 2
     
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
