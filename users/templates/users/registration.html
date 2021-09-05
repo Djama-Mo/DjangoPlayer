@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+<link href="{% static 'css/register_style.css' %}" rel="stylesheet">
+<div class="container">
+    <form method="post">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        {% comment %}
+        {% for field in form %}
+        <div class="form-group">
+            {{ field.label_tag }}
+            {{ field }}
+            <div class="invalid-feedback">
+                {{ field.errors }}
+            </div>
+        </div>
+        {% endfor %}
+        {% endcomment %}
+
+        <button type="submit" class="btn btn-dark btn-primary">DONE</button>
+
+    </form>
+</div>
+{% endblock %}

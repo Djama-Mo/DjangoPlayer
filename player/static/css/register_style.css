@@ -1,0 +1,45 @@
+.container{
+    width: 700px;
+    position: relative;
+    margin: auto;
+    display: block;
+    height: 600px;
+    padding-left: 20%;
+    margin-top: 5%;
+    background: transparent linear-gradient(to bottom,rgba(10,11,31,0.9) 50%,rgb(10,11,31) 70%) repeat scroll 0 0;
+    box-shadow: 1px 10px 20px 5px #222;
+    min-width: auto !important;
+}
+.container form{
+    position: relative;
+    padding-top: 90px;
+}
+p{
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+legend.border-bottom.mb4{
+
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+div.border-top.pt-3{
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+.container ul{
+    left: 50%;
+    margin-top: 30%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+.container form button{
+    transform: translate(-100%, -50%);
+}

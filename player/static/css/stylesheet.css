@@ -27,7 +27,7 @@ body{
 }
 .music-player {
     display: block;
-    position: relative;
+    position: fixed;
     width: 600px;
     height: 400px;
     margin: auto;

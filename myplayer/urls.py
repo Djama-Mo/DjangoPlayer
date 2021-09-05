@@ -22,7 +22,8 @@ import debug_toolbar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('player.urls'))
+    path('', include('player.urls')),
+    path('', include('users.urls')),
 ]
 
 if settings.DEBUG:

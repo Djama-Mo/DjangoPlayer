@@ -44,10 +44,21 @@
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="/admin">Admin</a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'Release' %}">Release</a></li>
           </ul>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{% url 'Logout' %}">Log out</a>
+          </li>
+          {% else %}
           <form class="d-flex">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'Login' %}">Log in</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'Register' %}">Sign up</a></li>
+
+            {% comment %}
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
+            {% endcomment %}
           </form>
+          {% endif %}
         </div>
       </div>
     </nav>

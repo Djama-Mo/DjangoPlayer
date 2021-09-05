@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<link href="{% static 'css/register_style.css' %}" rel="stylesheet">
+<div class="container">
+    <form method="post">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb4">
+                    Join Today
+                </legend>
+                {{ form.as_p }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign in</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Need an account? <a class="ml-2" href="{% url 'Register' %}">Sign up</a>
+            </small>
+        </div>
+</div>
+{% endblock %}
