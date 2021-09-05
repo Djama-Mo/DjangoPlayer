@@ -1,40 +1,55 @@
 {% extends 'base.html' %}
-{% load static %}
+
 {% block title %}
 {{ title }}
 {% endblock %}
 
 {% block content %}
-<div class="contain">
-    <div class="container">
-        <div class="music-player">
-            {% for item in objects %}
-                <div class="cover">
-                    <img alt="" src="{{ item.image.url }}"/>
-                </div>
+
+<div class="container">
+    <div class="music-player">
+        {% for item in objects %}
                 <div class="titre">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'Genre' item.genre.id %}">{{ item.genre }}</a>
-                    </li>
+                    <div class="cover"><img alt="" src="{{ item.image.url }}"/></div>
+                    <a class="nav-link active" aria-current="page"
+                    href="{% url 'Genre' item.genre.id %}">{{ item.genre }}</a>
 
                     <h3>{{ item.artist }}</h3>
 
                     <h1>{{ item.title }}</h1>
                 </div>
-                <a href="{% if page_obj.has_previous %}?page={{ page_obj.previous_page_number }}{% endif %}">
-                    <i class="fa fa-step-backward fa-2x"></i>
-                </a>
-                <a href="{% if page_obj.has_next %}?page={{ page_obj.next_page_number }} {% endif %}">
-                    <i class="fa fa-step-forward fa-2x"></i>
-                </a>
                 <div class="lecteur">
                     <audio class="fc-media" style="width: 100%;">
-                        <source src="{% if item.audio_file %}{{item.audio_file.url}} {% else %} {{item.audio_link}} {% endif %}" type="audio/mp3"/>
+                        <source src="{% if item.audio_file %}{{item.audio_file.url}} {% else %} {{item.audio_link}} {% endif %}"
+                                type="audio/mp3"/>
                     </audio>
                 </div>
-            {% endfor %}
-        </div>
+        {% endfor %}
     </div>
 </div>
-<script src="{% static 'js/script.js' %}"></script>
+
 {% endblock %}
+
+
+{% comment %}
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{% endcomment %}
