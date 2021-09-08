@@ -36,7 +36,7 @@ class GenreView(SongView):
 class ReleaseView(LoginRequiredMixin, CreateView):
     template_name = 'player/release.html'
     form_class = SongForm
-    login_url = '/admin'
+    login_url = reverse_lazy('Login')
     success_url = reverse_lazy('Home')
 
     def get_context_data(self, *, object_list=None, **kwargs):
