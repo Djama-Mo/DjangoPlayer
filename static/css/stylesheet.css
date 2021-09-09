@@ -1,0 +1,57 @@
+*:focus{
+    outline: none;
+}
+body{
+    background-image: url("https://st2.depositphotos.com/4966263/9277/v/950/depositphotos_92773804-stock-illustration-pattern-with-hand-drawn-music.jpg");
+}
+.titre a{
+    margin: 0;
+    margin-top: 199px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #b398ffb3;
+    padding: 0 3%;
+}
+.titre h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 500;
+    color: #b398ffb3;
+    padding: 0 3%;
+}
+.titre h1 {
+    margin: 0;
+    font-size: 33px;
+    color: #b398ffb3;
+    padding: 0 3%;
+}
+.music-player {
+    display: block;
+    position: fixed;
+    width: 1000px;
+    height: 400px;
+    margin: auto;
+    margin-top: 6%;
+    border-radius: 10px 100px 100px 10px;
+    background: transparent linear-gradient(to bottom,rgba(10,11,31,0.9) 50%,rgb(10,11,31) 70%) repeat scroll 0 0;
+    box-shadow: 1px 10px 20px 5px #222;
+}
+.mejs__container {
+    position: relative;
+    background-color: transparent;
+    min-width: auto !important;
+}.mejs__controls .mejs__time span {
+    font-size: 15px;
+}
+.mejs__time-total {
+    background: hsla(222.2, 40.5%, 31%, 0.54);
+}
+.mejs__controls:not([style*="display: none"]){
+    background: linear-gradient(#ddd0,rgba(255, 255, 255, 0.05));
+}
+.mejs__controls{
+    width: 86%;
+}
+.container{
+    padding-left: initial;
+}
