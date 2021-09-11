@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="music-player">
+        {% for item in objects %}
+        <div class="titre">
+            <div class="cover"><img alt="" src="{{ item.image.url }}"/></div>
+            <a class="nav-link active" aria-current="page" href="{{ item.genre.get_absolute_url }}">{{ item.genre }}</a>
+
+            <h3>{{ item.artist }}</h3>
+
+            <h1>{{ item.title }}</h1>
+        </div>
+        <div class="lecteur">
+            <audio class="fc-media" style="width: 100%;">
+                <source src="{% if item.audio_file %}{{item.audio_file.url}} {% else %} {{item.audio_link}} {% endif %}"
+                        type="audio/mp3"/>
+            </audio>
+        </div>
+        {% endfor %}
+    </div>
+</div>

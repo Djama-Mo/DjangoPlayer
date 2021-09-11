@@ -5,28 +5,7 @@
 {% endblock %}
 
 {% block content %}
-{% for item in objects %}
-<div class="cover">
-    <img alt="" src="{{item.image.url}}"/>
-</div>
-<div class="titre">
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{{ item.genre.get_absolute_url }}">{{ item.genre }}</a>
-    </li>
 
-    <h3>{{ item.artist }}</h3>
+{% include 'inc/_genre_tab.html' %}
 
-    <h1>{{ item.title }}</h1>
-</div>
-<center><a href="{% if page_obj.has_previous %}?page={{ page_obj.previous_page_number }}{% endif %}"><i
-        class="fa fa-step-backward fa-2x"></i></a> &nbsp; &nbsp; &nbsp; <a
-        href="{% if page_obj.has_next %}?page={{ page_obj.next_page_number }} {% endif %}"><i
-        class="fa fa-step-forward fa-2x"></i></a></center>
-<div class="lecteur">
-    <audio class="fc-media" style="width: 100%;">
-        <source src="{% if item.audio_file %}{{item.audio_file.url}} {% else %} {{item.audio_link}} {% endif %}"
-                type="audio/mp3"/>
-    </audio>
-</div>
-{% endfor %}
 {% endblock %}

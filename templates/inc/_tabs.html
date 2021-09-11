@@ -1,0 +1,99 @@
+<style>
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid;
+        display: flex;
+        position: fixed;
+        width: 1020px;
+        margin: auto;
+        margin-top: 1.4%;
+        border-radius: 50px 50px 100px 100px;
+        background: transparent linear-gradient(to bottom, rgba(10, 11, 31, 0.9) 50%, rgb(10, 11, 31) 70%) repeat scroll 0 0;
+        box-shadow: 1px 10px 20px 5px #222;
+        margin-left: 450px;
+        justify-content: center;
+    }
+
+    /* Style the buttons inside the tab */
+    .tab button {
+        background-color: inherit;
+
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 18px 120px;
+        transition: 0.3s;
+        font-size: 27px;
+        font-weight: 1000;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color: #ddd;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background-color: #ccc;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border-top: none;
+    }
+
+    .tablinks {
+        color: #ae6bff;
+    }
+
+</style>
+
+<div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'Top-30')">Top-30</button>
+    <button class="tablinks" onclick="openCity(event, 'Latest')">Latest</button>
+    {% if user.is_authorized %}
+    <button class="tablinks" onclick="openCity(event, 'Favourites')">Favourites</button>
+    {% else %}
+    <button class="tablinks" onclick="RedirectToLogin()">Favourites</button>
+    {% endif %}
+</div>
+
+<div id="Top-30" class="tabcontent">
+    <p>{% include 'inc/_music_player.html' %}</p>
+</div>
+
+<div id="Latest" class="tabcontent">
+    <p>{% include 'inc/_music_player.html' %}</p>
+</div>
+
+<div id="Favourites" class="tabcontent">
+    <p>Tokyo is the capital of Japan.</p>
+</div>
+
+
+<script>
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length - 1; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    function RedirectToLogin() {
+        location.href = '{% url "Login" %}';
+    }
+
+    window.onload = openCity(event, 'Top-30');
+</script>

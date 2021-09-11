@@ -2,8 +2,7 @@
     outline: none;
 }
 body{
-
-    background-image: url("https://st2.depositphotos.com/4966263/9277/v/950/depositphotos_92773804-stock-illustration-pattern-with-hand-drawn-music.jpg");
+    background-image: url("../../media/background.png");
 }
 .titre{
     position: initial;
