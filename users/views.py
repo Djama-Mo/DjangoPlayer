@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.contrib import messages
 
@@ -11,7 +11,7 @@ def register(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Success!')
-            return reverse_lazy('/login')
+            return redirect('Login')
         else:
             messages.error(request, 'Register error')
     else:

@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Song, Genre
 from .forms import SongForm
+from users.models import Profile
 
 
 class SongView(ListView):
@@ -13,7 +14,7 @@ class SongView(ListView):
     context_object_name = 'objects'
     queryset = Song.objects.select_related('genre')
     paginate_by = 30
-    
+
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Home Page'
@@ -32,7 +33,6 @@ class GenreView(SongView):
         return Song.objects.filter(genre_id=self.kwargs['genre_id']).select_related('genre')
 
 
-
 class ReleaseView(LoginRequiredMixin, CreateView):
     template_name = 'player/release.html'
     form_class = SongForm
@@ -43,3 +43,19 @@ class ReleaseView(LoginRequiredMixin, CreateView):
         context = super().get_context_data(**kwargs)
         context['form'] = self.form_class
         return context
+
+
+def add_favourite_song(request, song_id):
+    user = request.user
+    profile = Profile.objects.get(user__pk=user.pk)
+    song = Song.objects.get(pk=song_id)
+    profile.favourite_songs.add(song)
+    return redirect('Home')
+
+
+def delete_favourite_song(request, song_id):
+    user = request.user
+    profile = Profile.objects.get(user__pk=user.pk)
+    song = Song.objects.get(pk=song_id)
+    profile.favourite_songs.remove(song)
+    return redirect('Home')

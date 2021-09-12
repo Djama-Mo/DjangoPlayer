@@ -54,7 +54,7 @@
 <div class="tab">
     <button class="tablinks" onclick="openCity(event, 'Top-30')">Top-30</button>
     <button class="tablinks" onclick="openCity(event, 'Latest')">Latest</button>
-    {% if user.is_authorized %}
+    {% if user.is_authenticated %}
     <button class="tablinks" onclick="openCity(event, 'Favourites')">Favourites</button>
     {% else %}
     <button class="tablinks" onclick="RedirectToLogin()">Favourites</button>
@@ -70,7 +70,7 @@
 </div>
 
 <div id="Favourites" class="tabcontent">
-    <p>Tokyo is the capital of Japan.</p>
+    <p>{% include 'inc/_favourite_songs.html' %}</p>
 </div>
 
 
@@ -83,7 +83,7 @@
         }
 
         tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length - 1; i++) {
+        for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
 
@@ -95,5 +95,10 @@
         location.href = '{% url "Login" %}';
     }
 
-    window.onload = openCity(event, 'Top-30');
+    function openMainPage() {
+        openCity(event, 'Top-30');
+        document.getElementById("Top-30").className += " active";
+    }
+
+    window.onload = openMainPage();
 </script>

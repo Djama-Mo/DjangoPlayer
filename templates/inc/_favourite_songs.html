@@ -1,5 +1,7 @@
+{% load users_tags %}
 <div class="container">
     <div class="music-player">
+        {% get_favourite_songs user_pk=request.user.id as objects %}
         {% for item in objects %}
         <div class="titre">
             <div class="cover"><img alt="" src="{{ item.image.url }}"/></div>
@@ -8,12 +10,8 @@
 
             <h3>{{ item.artist }}</h3>
 
-            {% if user.is_authenticated %}
             <h1>{{ item.title }} &nbsp;&nbsp;&nbsp; <a class="nav-link active" aria-current="page"
-               href="{% url 'AddFavourite' item.id %}">Like</a></h1>
-            {% else %}
-            <h1>{{ item.title }}</h1>
-            {% endif %}
+               href="{% url 'DeleteFavourite' item.id %}">Unlike</a></h1>
 
         </div>
         <div class="lecteur">
