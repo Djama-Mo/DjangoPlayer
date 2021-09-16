@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'player',
     'users',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -141,3 +142,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'Home'
 
 INTERNAL_IPS = ['127.0.0.1',]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

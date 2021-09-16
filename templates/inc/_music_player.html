@@ -1,3 +1,5 @@
+{% load users_tags %}
+
 <div class="container">
     <div class="music-player">
         {% for item in objects %}
@@ -9,8 +11,12 @@
             <h3>{{ item.artist }}</h3>
 
             {% if user.is_authenticated %}
-            <h1>{{ item.title }} &nbsp;&nbsp;&nbsp; <a class="nav-link active" aria-current="page"
-               href="{% url 'AddFavourite' item.id %}">Like</a></h1>
+            <h1>{{ item.title }} &nbsp;&nbsp;&nbsp;
+                <button class="btn btn-outline-danger updateButton" itemid="{{ item.pk }}" id="{{ item.pk }}">
+                    {% get_like_status user=request.user song=item %}
+                </button>
+
+            </h1>
             {% else %}
             <h1>{{ item.title }}</h1>
             {% endif %}
@@ -25,3 +31,6 @@
         {% endfor %}
     </div>
 </div>
+
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="static 'js/fav_script.js'"></script>

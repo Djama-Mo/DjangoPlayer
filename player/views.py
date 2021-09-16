@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -49,13 +50,10 @@ def add_favourite_song(request, song_id):
     user = request.user
     profile = Profile.objects.get(user__pk=user.pk)
     song = Song.objects.get(pk=song_id)
-    profile.favourite_songs.add(song)
-    return redirect('Home')
-
-
-def delete_favourite_song(request, song_id):
-    user = request.user
-    profile = Profile.objects.get(user__pk=user.pk)
-    song = Song.objects.get(pk=song_id)
-    profile.favourite_songs.remove(song)
-    return redirect('Home')
+    if song in profile.favourite_songs.all():
+        profile.favourite_songs.remove(song)
+        like_status = 'Like'
+    else:
+        profile.favourite_songs.add(song)
+        like_status = 'Unlike'
+    return JsonResponse(data={'id': like_status}, safe=False)

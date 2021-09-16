@@ -2,45 +2,69 @@
     outline: none;
 }
 body{
-    background-image: url("https://st2.depositphotos.com/4966263/9277/v/950/depositphotos_92773804-stock-illustration-pattern-with-hand-drawn-music.jpg");
+    background-image: url("../../media/background.png");
+    overflow-y: scroll;
+}
+.titre{
+    position: initial;
+}
+.cover{
+    position: absolute;
+    background-size: 10px;
+    z-index: -1;
+}
+.cover img{
+    opacity: .4;
+    width: 126px;
+    height: 126px;
 }
 .titre a{
     margin: 0;
-    margin-top: 199px;
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 1000;
+    display: initial;
     color: #b398ffb3;
-    padding: 0 3%;
+    padding: 0 3.5%;
+}
+.nav-link:focus, .nav-link:hover{
+    color: #f0a4f791;
 }
 .titre h3 {
     margin: 0;
     font-size: 17px;
     font-weight: 500;
     color: #b398ffb3;
-    padding: 0 3%;
+    padding: 0 3.5%;
 }
 .titre h1 {
     margin: 0;
     font-size: 33px;
     color: #b398ffb3;
-    padding: 0 3%;
+    padding: 0 3.5%;
 }
 .music-player {
     display: block;
     position: fixed;
-    width: 1000px;
-    height: 400px;
+    width: 1320px;
+    height: 768px;
     margin: auto;
     margin-top: 6%;
     border-radius: 10px 100px 100px 10px;
     background: transparent linear-gradient(to bottom,rgba(10,11,31,0.9) 50%,rgb(10,11,31) 70%) repeat scroll 0 0;
     box-shadow: 1px 10px 20px 5px #222;
+    border: 1px solid;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+#music-player::-webkit-scrollbar {
+  width: 0;
 }
 .mejs__container {
     position: relative;
     background-color: transparent;
     min-width: auto !important;
-}.mejs__controls .mejs__time span {
+}
+.mejs__controls .mejs__time span {
     font-size: 15px;
 }
 .mejs__time-total {
@@ -50,8 +74,11 @@ body{
     background: linear-gradient(#ddd0,rgba(255, 255, 255, 0.05));
 }
 .mejs__controls{
-    width: 86%;
+    width: 100%;
 }
 .container{
-    padding-left: initial;
+    height: 100px;
+    padding-left: 0%;
+    padding-right: 10%;
 }
+

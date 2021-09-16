@@ -19,6 +19,7 @@ class Song(models.Model):
     class Meta:
         verbose_name = 'Song'
         verbose_name_plural = 'Songs'
+        ordering = ['-id']
 
 
 class Genre(models.Model):
