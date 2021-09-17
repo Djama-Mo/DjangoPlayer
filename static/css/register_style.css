@@ -11,35 +11,26 @@
     min-width: auto !important;
 }
 .container form{
-    position: relative;
+    position: absolute;
     padding-top: 90px;
-}
-p{
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    color: white;
+
 }
 legend.border-bottom.mb4{
+    transform: translate(-50%, -50%);
+    color: white;
 
-    left: 50%;
-    margin-right: -50%;
+}
+div.form-group{
     transform: translate(-50%, -50%);
+    margin: auto;
+}
+label{
     color: white;
 }
-div.border-top.pt-3{
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
+div.border-top.pt-3 {
     color: white;
 }
-.container ul{
-    left: 50%;
-    margin-top: 30%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
+div.container.big{
+
     color: white;
-}
-.container form button{
-    transform: translate(-100%, -50%);
 }

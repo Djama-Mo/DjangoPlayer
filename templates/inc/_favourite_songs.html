@@ -1,13 +1,16 @@
 {% load users_tags %}
+{% load static %}
 
 <div class="container">
     <div class="music-player">
+        {% if user.is_authenticated %}
+
         {% get_favourite_songs user_pk=request.user.id as objects %}
         {% for item in objects %}
         <div class="titre">
             <div class="cover"><img alt="" src="{{ item.image.url }}"/></div>
             <a class="nav-link active" aria-current="page"
-               href="{% url 'Genre' item.genre.id %}">{{ item.genre }}</a>
+               href="{% url 'player:Genre' item.genre.id %}">{{ item.genre }}</a>
 
             <h3>{{ item.artist }}</h3>
 
@@ -25,8 +28,29 @@
             </audio>
         </div>
         {% endfor %}
+
+        {% endif %}
     </div>
 </div>
 
 <script src="http://code.jquery.com/jquery.js"></script>
-<script src="static 'js/fav_script.js'"></script>
+<script>
+    $(document).ready(function () {
+
+        $('.updateButton').on('click', function () {
+
+            var item_id = $(this).attr('itemid');
+            var like_status = document.getElementById(item_id)
+
+            req = $.ajax({
+                url: 'add-favourite/' + item_id,
+                type: 'GET',
+                data: {'id': item_id}
+            });
+
+            req.done(function (data) {
+                $('#updateButton' + item_id).data(like_status.innerHTML = data.id)
+            });
+        });
+    });
+</script>

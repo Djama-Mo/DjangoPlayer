@@ -21,7 +21,7 @@
 
     {% endif %}
 
-    <form method="post">
+    <form method="post" action="">
         {% csrf_token %}
         <fieldset class="form-group">
             <legend class="border-bottom mb4">
@@ -34,7 +34,7 @@
         </div>
         <div class="form-floating">
         <small class="text-muted">
-            Need an account? <a class="" href="{% url 'Register' %}">Sign up</a>
+            Need an account? <a class="" href="{% url 'users:Register' %}">Sign up</a>
         </small>
     </div>
     </form>

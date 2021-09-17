@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import *
 
+
+app_name = 'player'
 urlpatterns = [
     path('', SongView.as_view(), name='Home'),
     path('genre/<int:genre_id>/', GenreView.as_view(), name='Genre'),

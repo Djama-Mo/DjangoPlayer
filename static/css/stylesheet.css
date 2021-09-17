@@ -3,7 +3,6 @@
 }
 body{
     background-image: url("../../media/background.png");
-    overflow-y: scroll;
 }
 .titre{
     position: initial;

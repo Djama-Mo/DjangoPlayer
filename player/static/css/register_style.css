@@ -27,3 +27,10 @@ div.form-group{
 label{
     color: white;
 }
+div.border-top.pt-3 {
+    color: white;
+}
+div.container.big{
+
+    color: white;
+}
