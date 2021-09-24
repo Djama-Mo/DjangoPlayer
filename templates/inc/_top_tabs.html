@@ -1,0 +1,75 @@
+<style>
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid;
+        display: flex;
+        position: fixed;
+        width: 1020px;
+        margin: auto;
+        margin-top: 1.4%;
+        border-radius: 50px 50px 100px 100px;
+        background: transparent linear-gradient(to bottom, rgba(10, 11, 31, 0.9) 50%, rgb(10, 11, 31) 70%) repeat scroll 0 0;
+        box-shadow: 1px 10px 20px 5px #222;
+        margin-left: 450px;
+        justify-content: center;
+    }
+
+    /* Style the buttons inside the tab */
+    .tab button {
+        background-color: inherit;
+
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 18px 120px;
+        transition: 0.3s;
+        font-size: 27px;
+        font-weight: 1000;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border-top: none;
+    }
+
+    .tablinks {
+        color: #ae6bff;
+    }
+
+</style>
+
+<div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'Top-30')">Top-30</button>
+</div>
+
+<div id="Top-30" class="tabcontent">
+    <p>{% include 'inc/_top_list.html' %}</p>
+</div>
+
+<script>
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    function openMainPage() {
+        openCity(event, 'Top-30');
+        document.getElementById("Top-30").className += " active";
+    }
+
+    window.onload = openMainPage();
+</script>

@@ -8,6 +8,8 @@ from .models import Song, Genre
 from .forms import SongForm
 from users.models import Profile
 
+from topparser.karma_parser import export_songs
+
 
 class SongView(ListView):
     model = Song
@@ -57,3 +59,8 @@ def add_favourite_song(request, song_id):
         profile.favourite_songs.add(song)
         like_status = 'Unlike'
     return JsonResponse(data={'id': like_status}, safe=False)
+
+
+def top_songs(request):
+    context = {'objects': export_songs}
+    return render(request, 'player/top_songs.html', context=context)
