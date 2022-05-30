@@ -22,7 +22,7 @@
         border: none;
         outline: none;
         cursor: pointer;
-        padding: 18px 120px;
+        padding: 18px 200px;
         transition: 0.3s;
         font-size: 27px;
         font-weight: 1000;
@@ -52,17 +52,12 @@
 </style>
 
 <div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'Top-30')">Top-30</button>
     <button class="tablinks" onclick="openCity(event, 'Latest')">Latest</button>
     {% if user.is_authenticated %}
     <button class="tablinks" onclick="openCity(event, 'Favourites')">Favourites</button>
     {% else %}
     <button class="tablinks" onclick="RedirectToLogin()">Favourites</button>
     {% endif %}
-</div>
-
-<div id="Top-30" class="tabcontent">
-    <p>{% include 'inc/_music_player.html' %}</p>
 </div>
 
 <div id="Latest" class="tabcontent">
@@ -96,7 +91,7 @@
     }
 
     function openMainPage() {
-        openCity(event, 'Top-30');
+        openCity(event, 'Latest');
         document.getElementById("Top-30").className += " active";
     }
 

@@ -27,7 +27,7 @@ body {
     font-weight: 1000;
     display: initial;
     color: #b398ffb3;
-    padding: 0 3.5%;
+    padding: 0 10%;
 }
 
 .nav-link:focus, .nav-link:hover {
@@ -39,14 +39,14 @@ body {
     font-size: 17px;
     font-weight: 500;
     color: #b398ffb3;
-    padding: 0 3.5%;
+    padding: 0 10%;
 }
 
 .titre h1 {
     margin: 0;
     font-size: 33px;
     color: #b398ffb3;
-    padding: 0 3.5%;
+    padding: 0 10%;
 }
 
 .music-player {
